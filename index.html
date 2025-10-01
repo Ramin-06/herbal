@@ -1,12 +1,271 @@
-
 <!DOCTYPE html>
 <html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herbalife Clone - Sağlamlıq və Qidalanma</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007bff, #00c4b4);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #28a745, #55efc4);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #f1c40f;
+            color: #2d3436;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #d4ac0d;
+            transform: translateY(-3px);
+        }
+
+        .calculator-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .calculator-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .calculator-section p {
+            text-align: center;
+            color: #636e72;
+            margin-bottom: 30px;
+        }
+
+        #bmiForm {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #2d3436;
+        }
+
+        .input-group input {
+            padding: 12px;
+            border: 1px solid #dfe6e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #28a745;
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+        }
+
+        .submit-button {
+            padding: 12px;
+            background: linear-gradient(135deg, #28a745, #55efc4);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .result-box {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f1f3f5;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .result-box.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .news-section {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+        }
+
+        .news-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .all-news {
+            display: block;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .all-news:hover {
+            color: #0056b3;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .news-card p {
+            color: #636e72;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .read-more:hover {
+            color: #218838;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3436, #636e72);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -76,6 +335,39 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('bmiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const height = parseFloat(document.getElementById('height').value) / 100;
+            const weight = parseFloat(document.getElementById('weight').value);
+            const resultBox = document.getElementById('result');
+            
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                resultBox.textContent = 'Zəhmət olmasa düzgün dəyərlər daxil edin.';
+                resultBox.classList.add('show');
+                return;
+            }
+            
+            const bmi = weight / (height * height);
+            let advice = '';
+            
+            if (bmi < 18.5) {
+                advice = 'Çəkiniz aşağıdır. Konsultasiya alın.';
+            } else if (bmi < 25) {
+                advice = 'Çəkiniz normadadır. Təbrik edirik!';
+            } else if (bmi < 30) {
+                advice = 'Çəkiniz artıqdır. İdarəetmə tövsiyələri.';
+            } else {
+                advice = 'Çəkiniz yüksəkdir. Həkimə müraciət edin.';
+            }
+            
+            resultBox.innerHTML = `
+                <p>BMI: ${bmi.toFixed(2)}</p>
+                <p>${advice}</p>
+            `;
+            resultBox.classList.add('show');
+        });
+    </script>
 </body>
 </html>
