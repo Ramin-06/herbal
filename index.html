@@ -1,1 +1,81 @@
 
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbalife Clone - Sağlamlıq və Qidalanma</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="images/logo.png" alt="Herbalife Logo" class="logo">
+            <h1>Herbalife Clone</h1>
+            <nav>
+                <ul>
+                    <li><a href="#calculator">BMI Kalkulyatoru</a></li>
+                    <li><a href="#news">Xəbərlər</a></li>
+                    <li><a href="#about">Haqqımızda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Herbalife dünya miqyasında #1 çəki idarəetmə və rifah brendidir.*</h2>
+                <a href="#calculator" class="cta-button">BMI Hesabla</a>
+            </div>
+        </section>
+
+        <section id="calculator" class="calculator-section">
+            <div class="container">
+                <h2>Bədən Çəkisi İndeksinin Kalkulyatoru</h2>
+                <p>Çəkinizin norma daxilində olub-olmadığını öyrənin və fərdi tövsiyələr alın.</p>
+                <form id="bmiForm">
+                    <div class="input-group">
+                        <label for="height">Boy (sm):</label>
+                        <input type="number" id="height" step="0.1" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="weight">Çəki (kq):</label>
+                        <input type="number" id="weight" step="0.1" required>
+                    </div>
+                    <button type="submit" class="submit-button">Hesabla</button>
+                </form>
+                <div id="result" class="result-box"></div>
+            </div>
+        </section>
+
+        <section id="news" class="news-section">
+            <div class="container">
+                <h2>Yeniliklər</h2>
+                <a href="#all-news" class="all-news">Bütün yeniliklər</a>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <h3>Bakıda Herbalife reseptlər kitabının təqdimatı keçirilib</h3>
+                        <p>Bakıda Azərbaycan üçün xüsusi olaraq hazırlanmış yeni Herbalife reseptlər kitabının təqdimatı uğurla keçirilib. Tədbirdə 25 media nümayəndəsini və qida bloqerlərini bir araya gətirib...</p>
+                        <a href="#" class="read-more">Daha çox oxu</a>
+                    </article>
+                    <article class="news-card">
+                        <h3>Herbalife, Kriştiano Ronaldo ilə əməkdaşlığı davam edir</h3>
+                        <p>Balanslaşdırılmış qidalanma və sağlam həyat tərzı üçün keyfiyyətli məhsulların hazırlanması üzrə ixtisaslaşmış beynəlxalq şirkət Herbalife dünya futbol ulduzu Kriştiano Ronaldo ilə sponsorluq müqaviləsini yenilədiyini elan edir...</p>
+                        <a href="#" class="read-more">Daha çox oxu</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Herbalife Clone. Bütün hüquqlar qorunur.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
